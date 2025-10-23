@@ -1,10 +1,12 @@
 import streamlit as st
-import pickle
+import pickle as pkl
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load trained model
-model = pickle.load(open("XGboost_model.pkl", "rb"))
+with open('attrition.pkl', 'rb') as f:
+    Scalar, model, model2 = pkl.load(f)
+
 
 st.title("HR Employee Attrition Prediction")
 st.write("Enter employee details below to predict if they are likely to leave the company.")
